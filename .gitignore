@@ -1,0 +1,10 @@
+result
+result-*
+.direnv
+*.tar.gz
+*.swp
+*.bak
+__pycache__/
+*.pyc
+.idea/
+.vscode/

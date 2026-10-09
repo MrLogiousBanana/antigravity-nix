@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Antigravity
+Comment=Google Antigravity Agentic Platform
+Exec=antigravity %U
+Terminal=false
+Type=Application
+Icon=antigravity
+StartupWMClass=antigravity
+Categories=Development;IDE;Utility;
+MimeType=x-scheme-handler/antigravity;

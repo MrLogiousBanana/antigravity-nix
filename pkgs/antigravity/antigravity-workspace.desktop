@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Antigravity (Workspace) 💼
+Comment=Google Antigravity Agentic Platform - Workspace Profile
+Exec=antigravity-workspace %U
+Terminal=false
+Type=Application
+Icon=antigravity-workspace
+StartupWMClass=antigravity-workspace
+Categories=Development;IDE;Utility;
+MimeType=x-scheme-handler/antigravity;
