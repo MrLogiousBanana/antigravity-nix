@@ -28,7 +28,7 @@
 , xorg
 , zlib
 , glibc
-, src ? null
+, customSrc ? null
 }:
 
 let
@@ -41,7 +41,8 @@ let
       url = "https://github.com/MrLogiousBanana/antigravity-nix/releases/download/v${version}/Antigravity.tar.gz";
       hash = "sha256-hRhbPEH7a5CmeiU6HFhwWFydgPVNOr/pms6NaFa8Dmw=";
     };
-  effectiveSrc = if src != null then src else defaultSrc;
+  effectiveSrc = if customSrc != null then customSrc else defaultSrc;
+
 in
 stdenv.mkDerivation {
   pname = "antigravity";

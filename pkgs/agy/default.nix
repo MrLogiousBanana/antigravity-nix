@@ -6,7 +6,7 @@
 , python3
 , zlib
 , glibc
-, src ? null
+, customSrc ? null
 }:
 
 let
@@ -20,7 +20,8 @@ let
       url = "https://storage.googleapis.com/antigravity-public/antigravity-cli/${version}-${buildId}/linux-x64/cli_linux_x64.tar.gz";
       hash = "sha256-v4UExyCXyX3nfScbFgvbELlWAxz3nPldlsuUjfFhwl8=";
     };
-  effectiveSrc = if src != null then src else defaultSrc;
+  effectiveSrc = if customSrc != null then customSrc else defaultSrc;
+
 in
 stdenv.mkDerivation {
   pname = "agy";
