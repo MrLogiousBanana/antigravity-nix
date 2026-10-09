@@ -6,20 +6,27 @@
 , python3
 , zlib
 , glibc
+, src ? null
 }:
 
 let
   version = "1.3.2";
   buildId = "5813501495738368";
+  localArchive = /home/mrlogiousbanana/Документы/Загрузки/cli_linux_x64.tar.gz;
+  defaultSrc =
+    if builtins.pathExists localArchive
+    then localArchive
+    else fetchurl {
+      url = "https://storage.googleapis.com/antigravity-public/antigravity-cli/${version}-${buildId}/linux-x64/cli_linux_x64.tar.gz";
+      hash = "sha256-v4UExyCXyX3nfScbFgvbELlWAxz3nPldlsuUjfFhwl8=";
+    };
+  effectiveSrc = if src != null then src else defaultSrc;
 in
 stdenv.mkDerivation {
   pname = "agy";
   inherit version;
 
-  src = fetchurl {
-    url = "https://storage.googleapis.com/antigravity-public/antigravity-cli/${version}-${buildId}/linux-x64/cli_linux_x64.tar.gz";
-    hash = "sha256-v4UExyCXyX3nfScbFgvbELlWAxz3nPldlsuUjfFhwl8=";
-  };
+  src = effectiveSrc;
 
   nativeBuildInputs = [
     autoPatchelfHook

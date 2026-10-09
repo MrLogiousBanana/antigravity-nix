@@ -33,10 +33,14 @@
 
 let
   version = "2.16.0";
-  defaultSrc = fetchurl {
-    url = "https://github.com/MrLogiousBanana/antigravity-nix/releases/download/v${version}/Antigravity.tar.gz";
-    hash = "sha256-hRhbPEH7a5CmeiU6HFhwWFydgPVNOr/pms6NaFa8Dmw=";
-  };
+  localArchive = /home/mrlogiousbanana/Документы/Загрузки/Antigravity.tar.gz;
+  defaultSrc =
+    if builtins.pathExists localArchive
+    then localArchive
+    else fetchurl {
+      url = "https://github.com/MrLogiousBanana/antigravity-nix/releases/download/v${version}/Antigravity.tar.gz";
+      hash = "sha256-hRhbPEH7a5CmeiU6HFhwWFydgPVNOr/pms6NaFa8Dmw=";
+    };
   effectiveSrc = if src != null then src else defaultSrc;
 in
 stdenv.mkDerivation {
