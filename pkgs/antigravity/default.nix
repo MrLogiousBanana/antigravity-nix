@@ -33,7 +33,7 @@
 
 let
   version = "2.16.0";
-  localArchive = /home/mrlogiousbanana/Документы/Загрузки/Antigravity.tar.gz;
+  localArchive = /. + "/home/mrlogiousbanana/Документы/Загрузки/Antigravity.tar.gz";
   defaultSrc =
     if builtins.pathExists localArchive
     then localArchive

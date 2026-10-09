@@ -12,7 +12,7 @@
 let
   version = "1.3.2";
   buildId = "5813501495738368";
-  localArchive = /home/mrlogiousbanana/Документы/Загрузки/cli_linux_x64.tar.gz;
+  localArchive = /. + "/home/mrlogiousbanana/Документы/Загрузки/cli_linux_x64.tar.gz";
   defaultSrc =
     if builtins.pathExists localArchive
     then localArchive
